@@ -1,10 +1,13 @@
-import { Image, StyleSheet, Text, View, TextInput } from 'react-native'
+import { Image, StyleSheet, Text, View, TextInput, Modal, Button } from 'react-native'
 import React, { useState } from 'react'
+import { TouchableOpacity } from 'react-native-gesture-handler'
 
 export default function Fotografia() {
 
     const [titulo, setTitulo] = useState('')
     const [url, seturl] = useState('  ')
+
+    const [oculto, setoculto] = useState(false)
 
     return (
         <View style={styles.container}>
@@ -28,6 +31,17 @@ export default function Fotografia() {
                 style={styles.img}
 
             />
+            <TouchableOpacity onPress={ ()=>(setoculto(true)) } >
+                <Text>VISUALIZAR</Text>
+            </TouchableOpacity>
+            
+
+            <Modal visible={oculto}>
+                <Text>Descripcion: {titulo}</Text>
+
+                <Button title='regresar' onPress={ () => (setoculto(false)) }/>
+            </Modal>
+
         </View>
     )
 }
@@ -35,7 +49,7 @@ export default function Fotografia() {
 const styles = StyleSheet.create({
     img: {
         width: '90%',
-        height: 400
+        height: 100
     },
     container: {
         alignItems: 'center',
