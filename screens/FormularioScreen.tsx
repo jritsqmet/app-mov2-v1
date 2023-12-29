@@ -1,6 +1,7 @@
 import { Button, StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react'
 import { TextInput } from 'react-native-gesture-handler'
+import Busqueda from '../components/Busqueda';
 
 export default function FormularioScreen() {
 
@@ -30,6 +31,8 @@ export default function FormularioScreen() {
       <Text>{respuesta}</Text>
 
       <Button title='sumar' onPress={ () => (sumar()) }/>
+
+      <Busqueda datos= { respuesta }/>
     </View>
   )
 }
