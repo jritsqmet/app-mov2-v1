@@ -38,7 +38,7 @@ export default function Fotografia() {
 
             <Modal visible={oculto}>
                 <Text>Descripcion: {titulo}</Text>
-
+                {/* visualizar la imagen */}
                 <Button title='regresar' onPress={ () => (setoculto(false)) }/>
             </Modal>
 
